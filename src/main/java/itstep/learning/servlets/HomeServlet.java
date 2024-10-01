@@ -14,7 +14,21 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //resp.getWriter().println("<h1>Home</h1>");
         // ~ return View(); аналог
-        req.setAttribute("body", "home.jsp"); //Аналог ~ViewData, може передавати дані від контролера до вью
+
+        boolean isSigned = false;
+        Object signature = req.getAttribute("signature");
+
+        if(signature != null && signature instanceof Boolean) {
+            isSigned = (Boolean) signature;
+        }
+
+        if(isSigned){
+            req.setAttribute("body", "home.jsp");
+        }
+        else{
+            req.setAttribute("body", "insecure.jsp");
+        }
+
         req.getRequestDispatcher("WEB-INF/views/_layout.jsp").forward(req, resp);
     }
 }

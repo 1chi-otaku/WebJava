@@ -6,7 +6,6 @@
 </head>
 <body>
 <title>404 - Сторінка не знайдена</title>
-
+<h1>404 - Not Found</h1>
 </body>
 </html>
-//hf
