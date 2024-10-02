@@ -2,7 +2,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <h1>Java Web. JSP</h1>
 
-<p><% request.getAttribute("db");%></p>
 <p>JSP - Java Server Pages - технологія веб-розробки з динамічним формуванням HTML сторінок.
   Анологічно до PHP, ранніх ASP є надбудовою над HTML, що розширує його додаючи:</p>
 <ul>
@@ -74,3 +73,8 @@
   </tr>
   <% } %>
 </table>
+
+<h2>Cервіс генерує випадкові імена файлів без використання активних символів файлової системи.</h2>
+
+<p>Випадкове ім'я файлу за замовчанням (32): <strong><%= request.getAttribute("defaultName") %></strong></p>
+<p>Випадкове ім'я файлу довжиною 54 символів: <strong><%= request.getAttribute("customName") %></strong></p>

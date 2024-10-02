@@ -2,6 +2,7 @@ package itstep.learning.servlets;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import itstep.learning.services.db.DbService;
+import itstep.learning.services.filegenerator.FileGeneratorService;
 import itstep.learning.services.hash.HashService;
 import itstep.learning.services.kdf.KdfService;
 
@@ -19,17 +20,26 @@ public class HomeServlet extends HttpServlet {
     private final HashService hashService;
     private final KdfService kdfService;
     private final DbService dbService;
+    private final FileGeneratorService fileGeneratorService;
 
     @Inject
-    public HomeServlet(HashService hashService, KdfService kdfService, DbService dbService) {
+    public HomeServlet(HashService hashService, KdfService kdfService, DbService dbService, FileGeneratorService fileGeneratorService) {
         this.hashService = hashService;
         this.kdfService = kdfService;
         this.dbService = dbService;
+        this.fileGeneratorService = fileGeneratorService;
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // ~ return View(); аналог
+
+        String defaultName = fileGeneratorService.generateFileName();
+        String customName = fileGeneratorService.generateFileName(54);
+
+        req.setAttribute("defaultName", defaultName);
+        req.setAttribute("customName", customName);
+
 
         boolean isSigned = false;
         Object signature = req.getAttribute("signature");
