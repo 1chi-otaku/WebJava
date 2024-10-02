@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <h1>Java Web. JSP</h1>
 
-
+<p><% request.getAttribute("db");%></p>
 <p>JSP - Java Server Pages - технологія веб-розробки з динамічним формуванням HTML сторінок.
   Анологічно до PHP, ранніх ASP є надбудовою над HTML, що розширує його додаючи:</p>
 <ul>

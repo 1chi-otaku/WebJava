@@ -1,6 +1,7 @@
 package itstep.learning.servlets;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import itstep.learning.services.db.DbService;
 import itstep.learning.services.hash.HashService;
 import itstep.learning.services.kdf.KdfService;
 
@@ -10,17 +11,20 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @Singleton
 public class HomeServlet extends HttpServlet {
 
     private final HashService hashService;
     private final KdfService kdfService;
+    private final DbService dbService;
 
     @Inject
-    public HomeServlet(HashService hashService, KdfService kdfService) {
+    public HomeServlet(HashService hashService, KdfService kdfService, DbService dbService) {
         this.hashService = hashService;
         this.kdfService = kdfService;
+        this.dbService = dbService;
     }
 
     @Override
@@ -34,7 +38,17 @@ public class HomeServlet extends HttpServlet {
             isSigned = (Boolean) signature;
         }
 
+        String dbMesage;
         if(isSigned){
+            try{
+                dbService.getConnection();
+                dbMesage = "Connection OK";
+            }
+            catch(SQLException e){
+                dbMesage = e.getMessage();
+            }
+
+            req.setAttribute("db", dbMesage);
             req.setAttribute("hash",
                     hashService.hash("123") + " " + kdfService.dk("password","salt.4"));
             req.setAttribute("body", "home.jsp");
