@@ -9,21 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7878e15-0a20-4650-8bc1-6b6755d26e8a" name="Changes" comment="Initial">
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/filters/CharsetFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/filters/SecurityFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlets/WebXmlServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insecure.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/web_xml.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/site.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/site.js" afterDir="false" />
+    <list default="true" id="a7878e15-0a20-4650-8bc1-6b6755d26e8a" name="Changes" comment="Homework2">
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ConfigContextListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ServlceModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/WebModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/services/hash/HashService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/services/hash/Md5HasService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SCREENSHOTS/SEP29 2024/JavaWebHW1_P1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SCREENSHOTS/SEP29 2024/JavaWebHW1_P2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlets/AnotherServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/filters/CharsetFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/filters/CharsetFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/filters/SecurityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/filters/SecurityFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlets/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlets/HomeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/_layout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/_layout.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/not_found.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/not_found.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlets/WebXmlServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlets/WebXmlServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,8 +34,9 @@
       <list>
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -62,6 +61,9 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -204,7 +206,7 @@
       <option name="presentableId" value="Default" />
       <updated>1727791326525</updated>
       <workItem from="1727791327627" duration="4604000" />
-      <workItem from="1727797662384" duration="14685000" />
+      <workItem from="1727797662384" duration="21157000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <option name="closed" value="true" />
@@ -246,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727802719307</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Homework2">
+      <option name="closed" value="true" />
+      <created>1727819341110</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727819341110</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,6 +264,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial" />
+    <MESSAGE value="Homework2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Homework2" />
   </component>
 </project>

@@ -1,5 +1,7 @@
 package itstep.learning.filters;
 
+import com.google.inject.Singleton;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,6 +12,8 @@ import java.io.IOException;
 Перевега надається web.xml, оскільки анотації не гарантують порядок виконання
 фільтрів, тоді як у web.xml порядок відповідає послідовності декларацій фільтрів.
  */
+
+@Singleton
 public class CharsetFilter implements Filter {
 
     private FilterConfig filterConfig;

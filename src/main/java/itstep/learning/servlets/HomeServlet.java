@@ -1,28 +1,37 @@
 package itstep.learning.servlets;
-import javax.servlet.annotation.WebServlet;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+import itstep.learning.services.hash.HashService;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("")
+@Singleton
 public class HomeServlet extends HttpServlet {
+
+    private  final HashService hashService;
+
+    @Inject
+    public HomeServlet(HashService hashService) {
+        this.hashService = hashService;
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //resp.getWriter().println("<h1>Home</h1>");
         // ~ return View(); аналог
 
         boolean isSigned = false;
         Object signature = req.getAttribute("signature");
 
-        if(signature != null && signature instanceof Boolean) {
+        if(signature instanceof Boolean) {
             isSigned = (Boolean) signature;
         }
 
         if(isSigned){
+            req.setAttribute("hash",hashService.hash("123"));
             req.setAttribute("body", "home.jsp");
         }
         else{

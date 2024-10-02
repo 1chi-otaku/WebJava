@@ -58,6 +58,7 @@
 
 
 <img src="img/Karasik.jpg" alt="img"/>
+<i>Контроль інжекії хешу: <%=request.getAttribute("hash")%></i>
 
 <h2>Домашне завдання. Вивести масив prices в виді таблиці:</h2>
 
