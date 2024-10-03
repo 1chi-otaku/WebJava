@@ -9,13 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7878e15-0a20-4650-8bc1-6b6755d26e8a" name="Changes" comment="ClassWorkP3">
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/services/filegenerator/FileGeneratorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/services/filegenerator/RandomFileNameService.java" afterDir="false" />
+    <list default="true" id="a7878e15-0a20-4650-8bc1-6b6755d26e8a" name="Changes" comment="GenerateFileName Service Implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ServiceModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ServiceModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlets/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlets/HomeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/services/filegenerator/RandomFileNameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/services/filegenerator/RandomFileNameService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +202,7 @@
       <updated>1727791326525</updated>
       <workItem from="1727791327627" duration="4604000" />
       <workItem from="1727797662384" duration="32717000" />
-      <workItem from="1727865933754" duration="310000" />
+      <workItem from="1727865933754" duration="3040000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <option name="closed" value="true" />
@@ -288,7 +284,39 @@
       <option name="project" value="LOCAL" />
       <updated>1727864240536</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="GenerateFileName Service Implemented">
+      <option name="closed" value="true" />
+      <created>1727866343720</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1727866343720</updated>
+    </task>
+    <task id="LOCAL-00012" summary="GenerateFileName Service Implemented">
+      <option name="closed" value="true" />
+      <created>1727866444365</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1727866444365</updated>
+    </task>
+    <task id="LOCAL-00013" summary="GenerateFileName Service Implemented">
+      <option name="closed" value="true" />
+      <created>1727866490629</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1727866490629</updated>
+    </task>
+    <task id="LOCAL-00014" summary="GenerateFileName Service Implemented">
+      <option name="closed" value="true" />
+      <created>1727866496815</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1727866496815</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,6 +328,7 @@
     <MESSAGE value="ClassWorkP1" />
     <MESSAGE value="ClassWorkP2" />
     <MESSAGE value="ClassWorkP3" />
-    <option name="LAST_COMMIT_MESSAGE" value="ClassWorkP3" />
+    <MESSAGE value="GenerateFileName Service Implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="GenerateFileName Service Implemented" />
   </component>
 </project>

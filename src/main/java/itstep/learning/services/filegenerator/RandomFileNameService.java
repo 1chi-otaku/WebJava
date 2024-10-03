@@ -7,7 +7,7 @@ import java.security.SecureRandom;
 @Singleton
 public class RandomFileNameService implements FileGeneratorService{
 
-    private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     private static final int DEFAULT_LENGTH = 32;
     private final SecureRandom random;
 
