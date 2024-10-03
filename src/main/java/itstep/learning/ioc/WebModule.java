@@ -11,7 +11,7 @@ public class WebModule extends ServletModule{
     @Override
     protected void configureServlets() {
         //За наявності IoC реєстрація фільтрів та сервлетів здійснюєть через
-        // Не забути !! прибрати реєстрацію фільтрів з web.xml та додати SIngleton
+        // Не забути !! прибрати реєстрацію фільтрів з web.xml та додати Singleton
         // До класiв фільтрів.
         filter("/*").through(CharsetFilter.class);
         filter("/*").through(SecurityFilter.class);

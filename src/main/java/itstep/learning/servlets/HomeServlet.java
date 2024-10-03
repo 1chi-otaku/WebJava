@@ -1,6 +1,7 @@
 package itstep.learning.servlets;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import itstep.learning.dal.dao.AuthDao;
 import itstep.learning.services.db.DbService;
 import itstep.learning.services.filegenerator.FileGeneratorService;
 import itstep.learning.services.hash.HashService;
@@ -21,13 +22,15 @@ public class HomeServlet extends HttpServlet {
     private final KdfService kdfService;
     private final DbService dbService;
     private final FileGeneratorService fileGeneratorService;
+    private final AuthDao authDao; //інжекцію класі (не інтерфейсів) реєструвати не треба.
 
     @Inject
-    public HomeServlet(HashService hashService, KdfService kdfService, DbService dbService, FileGeneratorService fileGeneratorService) {
+    public HomeServlet(HashService hashService, KdfService kdfService, DbService dbService, FileGeneratorService fileGeneratorService, AuthDao authDao) {
         this.hashService = hashService;
         this.kdfService = kdfService;
         this.dbService = dbService;
         this.fileGeneratorService = fileGeneratorService;
+        this.authDao = authDao;
     }
 
     @Override
@@ -50,15 +53,11 @@ public class HomeServlet extends HttpServlet {
 
         String dbMesage;
         if(isSigned){
-            try{
-                dbService.getConnection();
-                dbMesage = "Connection OK";
-            }
-            catch(SQLException e){
-                dbMesage = e.getMessage();
-            }
+            String dbMessage =
+                    authDao.install() ? "Connection OK" : "Connection failed";
 
-            req.setAttribute("db", dbMesage);
+
+
             req.setAttribute("hash",
                     hashService.hash("123") + " " + kdfService.dk("password","salt.4"));
             req.setAttribute("body", "home.jsp");
