@@ -49,11 +49,17 @@ function App({contextPath, homePath}) {
 
 
                         </ul>
-                        <form className="d-flex" role="search">
+                        <form className="d-flex nav-search" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search"
                                    aria-label="Search"/>
-                            <button className="btn btn-outline-success" type="submit">Search</button>
+                            <button className="btn btn-outline-success" type="submit"><i className="bi bi-search"></i>
+                            </button>
                         </form>
+
+                        <button type="button" className="btn btn-outline-secondary" data-bs-toggle="modal"
+                                data-bs-target="#authModal">
+                            <i className="bi bi-box-arrow-in-right"></i>
+                        </button>
                     </div>
                 </div>
             </nav>
@@ -63,6 +69,12 @@ function App({contextPath, homePath}) {
             {state.page === 'cart' && <Cart/>}
         </main>
         <div className="spacer"></div>
+
+
+        <div className="modal fade" id="authModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <AuthModal/>
+        </div>
+
         <footer className="bg-body-tertiary px-3 py-2">
             &copy; 2024, ITSTEP KN-P-213
         </footer>
@@ -83,6 +95,37 @@ function Home() {
     return <div>
         <h2>Домашня</h2>
         <b onClick={() => dispatch({type: "navigate", payload: "cart"})}>До Кошику</b>
+    </div>;
+}
+
+function AuthModal(){
+    const [login, setLogin] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    const authClick = React.useCallback(() => {
+        console.log(login, password);
+    })
+    return <div className="modal-dialog">
+        <div className="modal-content">
+            <div className="modal-header">
+                <h1 className="modal-title fs-5" id="exampleModalLabel">Вхід до системи</h1>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div className="modal-body">
+                <div className="input-group mb-3"><span className="input-group-text" id="login-addon"><i className="bi bi-person-fill-lock"></i></span> <input
+                    type="text" className="form-control" placeholder="Логін" aria-label="Логін"
+                    aria-describedby="login-addon" onChange={e => setLogin(e.target.value)}/></div>
+
+                <div className="input-group mb-3"><span className="input-group-text" id="password-addon"><i className="bi bi-key-fill"></i></span> <input
+                    type="password" className="form-control" placeholder="*********" aria-label="Пароль"
+                    aria-describedby="password-addon" onChange={e => setPassword(e.target.value)}/></div>
+            </div>
+
+            <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Скасувати</button>
+                <button type="button" className="btn btn-primary" onClick={authClick}>Вхід!</button>
+            </div>
+        </div>
     </div>;
 }
 
