@@ -17,7 +17,8 @@ public class WebModule extends ServletModule{
         filter("/*").through(SecurityFilter.class);
 
         // те ж з сервлетами
-        serve("/").with(HomeServlet.class);
+        serve("/"       ).with(HomeServlet.class);
+        serve("/auth"   ).with(AuthServlet.class);
         serve("/web-xml").with(WebXmlServlet.class);
     }
 

@@ -26,7 +26,7 @@ function App({contextPath, homePath}) {
             dispatch( { type: "navigate", payload: hash.substring(1) } );
         }
     }, [] );
-    return <AppContext.Provider value={{state, dispatch}}>
+    return <AppContext.Provider value={{state, dispatch, contextPath}}>
         <header>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
@@ -98,12 +98,23 @@ function Home() {
     </div>;
 }
 
-function AuthModal(){
+function AuthModal() {
+    const { contextPath } = React.useContext(AppContext);
     const [login, setLogin] = React.useState("");
     const [password, setPassword] = React.useState("");
+
     const authClick = React.useCallback(() => {
         console.log(login, password);
-    })
+        fetch(`${contextPath}/auth`, {
+            method: "GET",
+            headers: {
+                "Authorization": "Basic " + btoa(login + ':' + password)
+            }
+        })
+            .then(r => r.json())
+            .then(console.log);
+    });
+
     return <div className="modal-dialog">
         <div className="modal-content">
             <div className="modal-header">
