@@ -9,11 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7878e15-0a20-4650-8bc1-6b6755d26e8a" name="Changes" comment="L1_P1 DONE">
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlets/AuthServlet.java" afterDir="false" />
+    <list default="true" id="a7878e15-0a20-4650-8bc1-6b6755d26e8a" name="Changes" comment="Successfull Fetch">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/test_auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/test_auth.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/WebModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/WebModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/_layout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/_layout.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/js/shop.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/shop.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,10 +25,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Jsp File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Class" />
+        <option value="JavaScript File" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -94,6 +94,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\1chi\IdeaProjects\WebJava\src\main\webapp" />
+      <recent name="C:\Users\1chi\IdeaProjects\WebJava\src\main\webapp\WEB-INF\views" />
       <recent name="C:\Users\1chi\IdeaProjects\WebJava\src\main\webapp\WEB-INF" />
     </key>
   </component>
@@ -359,7 +361,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728501547973</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Successfull Fetch">
+      <option name="closed" value="true" />
+      <created>1728505437212</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1728505437212</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,6 +387,7 @@
     <MESSAGE value="Lesson4_P2" />
     <MESSAGE value="L1_P1" />
     <MESSAGE value="L1_P1 DONE" />
-    <option name="LAST_COMMIT_MESSAGE" value="L1_P1 DONE" />
+    <MESSAGE value="Successfull Fetch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Successfull Fetch" />
   </component>
 </project>

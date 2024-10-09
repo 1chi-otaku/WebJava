@@ -32,6 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<%=contextPath%>/shop.jsp">Крамниця</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%=contextPath%>/test_auth.jsp">Test Auth</a>
+                    </li>
 
                 </ul>
                 <form class="d-flex" role="search">

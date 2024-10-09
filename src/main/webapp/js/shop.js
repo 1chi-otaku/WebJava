@@ -98,6 +98,7 @@ function Home() {
     </div>;
 }
 
+
 function AuthModal() {
     const { contextPath } = React.useContext(AppContext);
     const [login, setLogin] = React.useState("");
