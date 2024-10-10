@@ -9,12 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7878e15-0a20-4650-8bc1-6b6755d26e8a" name="Changes" comment="Successfull Fetch">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/test_auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/test_auth.jsp" afterDir="false" />
+    <list default="true" id="a7878e15-0a20-4650-8bc1-6b6755d26e8a" name="Changes" comment="Fetch Test Page Ready">
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/dal/dto/Token.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/dal/dto/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/dal/dto/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01851d8b-167b-4cb5-b947-13b5dac69646.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01851d8b-167b-4cb5-b947-13b5dac69646.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/_layout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/_layout.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/shop.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/shop.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/dal/dao/AuthDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/dal/dao/AuthDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlets/AuthServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlets/AuthServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +29,9 @@
       <list>
         <option value="Interface" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="JavaScript File" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -208,6 +211,7 @@
       <workItem from="1727791327627" duration="4604000" />
       <workItem from="1727797662384" duration="32717000" />
       <workItem from="1727865933754" duration="18034000" />
+      <workItem from="1728562573206" duration="2972000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <option name="closed" value="true" />
@@ -369,7 +373,23 @@
       <option name="project" value="LOCAL" />
       <updated>1728505437212</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Fetch Test Page Ready">
+      <option name="closed" value="true" />
+      <created>1728509952863</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1728509952863</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Fetch Test Page Ready">
+      <option name="closed" value="true" />
+      <created>1728510079955</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1728510079955</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,6 +408,19 @@
     <MESSAGE value="L1_P1" />
     <MESSAGE value="L1_P1 DONE" />
     <MESSAGE value="Successfull Fetch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Successfull Fetch" />
+    <MESSAGE value="Fetch Test Page Ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fetch Test Page Ready" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/itstep/learning/dal/dto/User.java</url>
+          <line>16</line>
+          <properties field="role" class="itstep.learning.dal.dto.User" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -928,7 +928,7 @@ java_kn_p_213|schema||user213|localhost|UPDATE|G</Grants>
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
     <schema id="289" parent="1" name="java_kn_p_213">
-      <LastIntrospectionLocalTimestamp>2024-10-03.08:39:11</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-10-10.12:56:34</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="290" parent="1" name="performance_schema">

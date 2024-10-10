@@ -4,9 +4,11 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import itstep.learning.services.db.DbService;
 import itstep.learning.services.kdf.KdfService;
+import itstep.learning.dal.dto.User;
 
 import javax.swing.plaf.nimbus.State;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Logger;
@@ -23,6 +25,32 @@ public class AuthDao {
         this.logger = logger;
         this.kdfService = kdfService;
     }
+
+    public User authenticate(String login, String password) {
+        String sql = "SELECT * FROM users_access a " +
+                " JOIN users u ON a.user_id = u.user_id " +
+                " JOIN users_roles r ON a.role_id = r.role_id " +
+                " WHERE a.login = ? ";
+        try(PreparedStatement prep = dbService.getConnection().prepareStatement(sql)){
+            prep.setString(1, login);
+            ResultSet rs = prep.executeQuery();
+            if(rs.next()){ //Є такий логін
+                String salt = rs.getString("salt");
+                String dk = rs.getString("dk");
+                //Повторюємо процедуру DK і перевіряємо чи збігаються результати перетворень
+                if (kdfService.dk(password, salt).equals(dk)){
+                    return new User(rs);
+                }
+
+            }
+        }
+        catch( SQLException ex ) {
+            logger.warning( ex.getMessage() + " -- " + sql );
+
+        }
+        return null;
+    }
+
 
     public boolean install() {
         String sql = "CREATE TABLE  IF NOT EXISTS `users` (" +
@@ -131,9 +159,9 @@ public class AuthDao {
                 "'81661d9f-815d-11ef-bb48-fcfbf6dd7098'," +
                 "'admin', ?, ?, 1) " +
                 "ON DUPLICATE KEY UPDATE " +
-                "`user_id` = 'Administrator', " +
-                "`role_id` = 'admin@change.me', " +
-                "`login` = '1970-01-01'," +
+                "`user_id` = '7dd7d8a9-815e-11ef-bb48-fcfbf6dd7098', " +
+                "`role_id` = '81661d9f-815d-11ef-bb48-fcfbf6dd7098', " +
+                "`login` = 'admin'," +
                 "`salt` = ?," +
                 "`dk` = ?," +
                 "`is_active` = 1";
