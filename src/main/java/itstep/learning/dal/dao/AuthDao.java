@@ -3,11 +3,11 @@ package itstep.learning.dal.dao;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import itstep.learning.dal.dto.Token;
+import itstep.learning.dal.dto.User;
+import itstep.learning.models.SignupFormModel;
 import itstep.learning.services.db.DbService;
 import itstep.learning.services.kdf.KdfService;
-import itstep.learning.dal.dto.User;
 
-import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.Date;
 import java.util.UUID;
@@ -16,14 +16,64 @@ import java.util.logging.Logger;
 @Singleton
 public class AuthDao {
     private final DbService dbService;
-    private  final Logger logger;
-    private  final KdfService kdfService;
+    private final Logger logger;
+    private final KdfService kdfService;
 
     @Inject
     public AuthDao(DbService dbService, Logger logger, KdfService kdfService) {
         this.dbService = dbService;
         this.logger = logger;
         this.kdfService = kdfService;
+    }
+
+    public User signUp( SignupFormModel model ) {
+        if( model == null ) {
+            return null;
+        }
+        User user = new User();
+        user.setUserId( UUID.randomUUID() );
+        user.setUserName( model.getName() );
+        user.setEmail( model.getEmail() );
+        user.setPhone( model.getPhone() );
+        user.setBirthdate( model.getBirthdate() );
+        user.setAvatarUrl( model.getAvatar() );
+        String sql = "INSERT INTO `users` " +
+                "(`user_id`, `user_name`, `email`, `phone`, `avatar_url`, `birthdate`) " +
+                "VALUES(?,?,?,?,?,?)";
+        try( PreparedStatement prep = dbService.getConnection().prepareStatement( sql ) ) {
+            prep.setString( 1, user.getUserId().toString() );
+            prep.setString( 2, user.getUserName() );
+            prep.setString( 3, user.getEmail() );
+            prep.setString( 4, user.getPhone() );
+            prep.setString( 5, user.getAvatarUrl() );
+            prep.setTimestamp( 6, new Timestamp( user.getBirthdate().getTime() ) );
+            prep.executeUpdate();
+        }
+        catch( SQLException ex ) {
+            logger.warning( ex.getMessage() + " -- " + sql );
+            return null;
+        }
+
+
+        String salt = UUID.randomUUID().toString().substring(0, 16);
+        String password = model.getPassword();
+        String dk = kdfService.dk( password, salt );
+        sql = "INSERT INTO `users_access`(`user_id`, `login`, `salt`, `dk`) " +
+                "VALUES (?, ?, ?, ?) ";
+        try( PreparedStatement prep = dbService.getConnection().prepareStatement( sql ) ) {
+            prep.setString( 1, user.getUserId().toString() );
+            prep.setString( 2, model.getLogin() );
+            prep.setString( 3, salt );
+            prep.setString( 4, dk );
+            prep.executeUpdate();
+        }
+        catch( SQLException ex ) {
+            logger.warning( ex.getMessage() + " -- " + sql );
+            // TODO: Delete user
+            return null;
+        }
+
+        return user;
     }
 
     public User authenticate( String login, String password ) {
@@ -68,7 +118,7 @@ public class AuthDao {
         token.setTokenId( UUID.randomUUID() );
         token.setUserId( user.getUserId() );
         token.setIat( new Date( System.currentTimeMillis() ) );
-        token.setExp( new Date( System.currentTimeMillis() + 60000 ) );
+        token.setExp( new Date( System.currentTimeMillis() + 86400000 ) );
 
         String sql = "INSERT INTO tokens ( token_id, user_id, iat, exp ) " +
                 " VALUES ( ?, ?, ?, ? )";
@@ -86,14 +136,13 @@ public class AuthDao {
         return null;
     }
 
-
     public boolean install() {
         String sql = "CREATE TABLE  IF NOT EXISTS `users` (" +
                 "`user_id`     CHAR(36)     PRIMARY KEY  DEFAULT( UUID() )," +
                 "`user_name`   VARCHAR(64)  NOT NULL," +
                 "`email`       VARCHAR(128) NOT NULL," +
                 "`phone`       VARCHAR(16)      NULL," +
-                "`avatar_url`  VARCHAR(16)      NULL," +
+                "`avatar_url`  VARCHAR(256)     NULL," +
                 "`birthdate`   DATETIME     NOT NULL," +
                 "`delete_dt`   DATETIME         NULL" +
                 ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
@@ -112,7 +161,7 @@ public class AuthDao {
                 "`login`     VARCHAR(32)  NOT NULL," +
                 "`salt`      CHAR(16)         NULL," +
                 "`dk`        CHAR(20)         NULL," +
-                "`role_id`   CHAR(36)     NOT NULL," +
+                "`role_id`   CHAR(36)     NOT NULL DEFAULT 'acffa6f6-89f9-11ef-a6bd-6f31a5ab6a0f'," +
                 "`is_active` TINYINT      DEFAULT 1" +
                 ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
 
@@ -169,6 +218,19 @@ public class AuthDao {
             logger.warning( ex.getMessage() + " -- " + sql );
             return false;
         }
+        sql = "INSERT INTO `users_roles`(`role_id`,`role_name`,`can_create`,`can_read`,`can_update`,`can_delete`) " +
+                "VALUES ('acffa6f6-89f9-11ef-a6bd-6f31a5ab6a0f','Guest',0,1,0,0) " +
+                "ON DUPLICATE KEY UPDATE " +
+                "`role_name` = 'Guest', " +
+                "`can_create` = 0, `can_read` = 1,`can_update` = 0,`can_delete` = 0";
+        try( Statement stmt = dbService.getConnection().createStatement() ) {
+            stmt.executeUpdate( sql ) ;
+        }
+        catch( SQLException ex ) {
+            logger.warning( ex.getMessage() + " -- " + sql );
+            return false;
+        }
+
 
         sql = "INSERT INTO `users`(`user_id`,`user_name`,`email`,`birthdate`,`delete_dt`) " +
                 "VALUES ('7dd7d8a9-815e-11ef-bb48-fcfbf6dd7098','Administrator','admin@change.me','1970-01-01',NULL) " +
@@ -215,43 +277,36 @@ public class AuthDao {
         return true;
     }
 }
-
 /*
-DAO - Data Access Object  - набір інструменті (бізнес-логіка) для
-роботи з DTO - Data Transfer Object (entities) - моделями передачі даних.
-Задачі авторизації/ автентифікації
-![users]!      ![users_access]!     ![users_roles]!        ![tokens]!
-user_id       [access_id]           |role_id               |token_id
-user_name     [user_id]             |role_name             |user_id
-email         [login]               |can_create            |iat //issued at
-phone         [salt]                |can_read              |exp //expiration
-avatar        [dk]                  |can_update
-delete_dt     [role_id]             |can_delete
-birthdate     [is_active]
+DAO - Data Access Object
+набір інструментів (бізнес-логіка) для роботи з
+DTO - Data Transfer Object (Entities) - моделями
+передачі даних
 
-![users_details]!
-user_id
-tg_url
-fb_url
-work_email
-work_phone
+Задачі авторизації / автентифікації
+[users]       [users_access]     [users_roles]     [tokens]
+|user_id      |access_id         |role_id          |token_id
+|user_name    |user_id           |role_name        |user_id
+|email        |login             |can_create       |iat
+|phone        |salt              |can_read         |exp
+|avatar_url   |dk                |can_update       |
+|birthdate    |role_id           |can_delete       |
+|delete_dt    |is_active
 
-Д.З Реалізувати DAO для ведення журналу доступу до сайту:
--хто заходив
--коли заходив
--на яку сторінку.
+[users_details]
+|user_id
+|tg_url
+|fb_url
+|work_email
+|work_phone
+|work_address
+|home_address
 
- Розробити структуру таблиць, створити метод install() який створить
- таблиці у БД.
-
- На домашній сторінці переконатися у дієздатності методу.
-
-
-
-Д.З Реалізувати сервіс для генерування випадкових імен файлів. (без розширення)
-Випадковий набір символів одного реєстру (або маленькі або великі)
-у якому немає активних символів файлової системи (./*,?...)
-Сервіс може приймати параметр - довжина імені (у символа).
-Якщо не передається, то вживає дані за замовчанням. (з ентропією 64 біти)
-Інжектувати до домашньої сторінки, вивести пробні результати різної довжини.
+Д.З. Реалізувати DAO для ведення журналу доступу до сайту:
+- хто заходив
+- коли заходив
+- на яку сторінку
+Розробити структуру таблиці (таблиць), створити метод
+install() який створить таблиці у БД.
+На домашній сторінці переконатись у дієздатності методу.
  */

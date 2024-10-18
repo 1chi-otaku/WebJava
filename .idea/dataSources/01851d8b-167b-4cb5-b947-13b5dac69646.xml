@@ -928,7 +928,7 @@ java_kn_p_213|schema||user213|localhost|UPDATE|G</Grants>
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
     <schema id="289" parent="1" name="java_kn_p_213">
-      <LastIntrospectionLocalTimestamp>2024-10-10.12:56:34</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-10-18.13:52:44</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="290" parent="1" name="performance_schema">
@@ -937,5 +937,216 @@ java_kn_p_213|schema||user213|localhost|UPDATE|G</Grants>
     <user id="291" parent="1" name="user213">
       <Host>localhost</Host>
     </user>
+    <table id="292" parent="289" name="access_log">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <table id="293" parent="289" name="tokens">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <table id="294" parent="289" name="users">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <table id="295" parent="289" name="users_access">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <table id="296" parent="289" name="users_roles">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <column id="297" parent="292" name="access_log_id">
+      <DefaultExpression>(uuid())</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>char(36)|0s</StoredType>
+    </column>
+    <column id="298" parent="292" name="user_id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>char(36)|0s</StoredType>
+    </column>
+    <column id="299" parent="292" name="timestamp">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>3</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="300" parent="292" name="page_visited">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+    </column>
+    <index id="301" parent="292" name="PRIMARY">
+      <ColNames>access_log_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="302" parent="292" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="303" parent="293" name="token_id">
+      <DefaultExpression>(uuid())</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>char(36)|0s</StoredType>
+    </column>
+    <column id="304" parent="293" name="user_id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>char(36)|0s</StoredType>
+    </column>
+    <column id="305" parent="293" name="iat">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>3</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="306" parent="293" name="exp">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <index id="307" parent="293" name="PRIMARY">
+      <ColNames>token_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="308" parent="293" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="309" parent="294" name="user_id">
+      <DefaultExpression>(uuid())</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>char(36)|0s</StoredType>
+    </column>
+    <column id="310" parent="294" name="user_name">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(64)|0s</StoredType>
+    </column>
+    <column id="311" parent="294" name="email">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="312" parent="294" name="phone">
+      <Position>4</Position>
+      <StoredType>varchar(16)|0s</StoredType>
+    </column>
+    <column id="313" parent="294" name="avatar_url">
+      <Position>5</Position>
+      <StoredType>varchar(256)|0s</StoredType>
+    </column>
+    <column id="314" parent="294" name="birthdate">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="315" parent="294" name="delete_dt">
+      <Position>7</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <index id="316" parent="294" name="PRIMARY">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="317" parent="294" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="318" parent="295" name="access_id">
+      <DefaultExpression>(uuid())</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>char(36)|0s</StoredType>
+    </column>
+    <column id="319" parent="295" name="user_id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>char(36)|0s</StoredType>
+    </column>
+    <column id="320" parent="295" name="login">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+    </column>
+    <column id="321" parent="295" name="salt">
+      <Position>4</Position>
+      <StoredType>char(16)|0s</StoredType>
+    </column>
+    <column id="322" parent="295" name="dk">
+      <Position>5</Position>
+      <StoredType>char(20)|0s</StoredType>
+    </column>
+    <column id="323" parent="295" name="role_id">
+      <DefaultExpression>&apos;acffa6f6-89f9-11ef-a6bd-6f31a5ab6a0f&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>char(36)|0s</StoredType>
+    </column>
+    <column id="324" parent="295" name="is_active">
+      <DefaultExpression>1</DefaultExpression>
+      <Position>7</Position>
+      <StoredType>tinyint|0s</StoredType>
+    </column>
+    <index id="325" parent="295" name="PRIMARY">
+      <ColNames>access_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="326" parent="295" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="327" parent="296" name="role_id">
+      <DefaultExpression>(uuid())</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>char(36)|0s</StoredType>
+    </column>
+    <column id="328" parent="296" name="role_name">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(36)|0s</StoredType>
+    </column>
+    <column id="329" parent="296" name="can_create">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>3</Position>
+      <StoredType>tinyint|0s</StoredType>
+    </column>
+    <column id="330" parent="296" name="can_read">
+      <DefaultExpression>1</DefaultExpression>
+      <Position>4</Position>
+      <StoredType>tinyint|0s</StoredType>
+    </column>
+    <column id="331" parent="296" name="can_update">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>5</Position>
+      <StoredType>tinyint|0s</StoredType>
+    </column>
+    <column id="332" parent="296" name="can_delete">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>6</Position>
+      <StoredType>tinyint|0s</StoredType>
+    </column>
+    <index id="333" parent="296" name="PRIMARY">
+      <ColNames>role_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="334" parent="296" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

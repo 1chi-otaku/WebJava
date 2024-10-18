@@ -9,9 +9,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7878e15-0a20-4650-8bc1-6b6755d26e8a" name="Changes" comment="L6_P1">
+    <list default="true" id="a7878e15-0a20-4650-8bc1-6b6755d26e8a" name="Changes" comment="Token added">
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/models/SignupFormModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/rest/RestMetaData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/rest/RestResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/rest/RestServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/rest/RestStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/services/form/FormParseResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/services/form/FormParseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/services/form/MixedFormParseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/services/storage/LocalStorageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/services/storage/StorageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/services/stream/StreamService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlets/StorageServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01851d8b-167b-4cb5-b947-13b5dac69646.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01851d8b-167b-4cb5-b947-13b5dac69646.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/dal/dao/AuthDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/dal/dao/AuthDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ServiceModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ServiceModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/WebModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/WebModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/services/filegenerator/RandomFileNameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/services/filegenerator/RandomFileNameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlets/AuthServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlets/AuthServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/shop.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/shop.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/shop.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/shop.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,10 +41,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="Jsp File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -80,6 +100,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -195,6 +216,9 @@
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\1chi\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a7878e15-0a20-4650-8bc1-6b6755d26e8a" name="Changes" comment="" />
@@ -205,7 +229,9 @@
       <workItem from="1727791327627" duration="4604000" />
       <workItem from="1727797662384" duration="32717000" />
       <workItem from="1727865933754" duration="18034000" />
-      <workItem from="1728562573206" duration="5334000" />
+      <workItem from="1728562573206" duration="11378000" />
+      <workItem from="1729173323979" duration="15677000" />
+      <workItem from="1729256101313" duration="4987000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <option name="closed" value="true" />
@@ -391,7 +417,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728565951796</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Token added">
+      <option name="closed" value="true" />
+      <created>1728568230645</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1728568230645</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,7 +446,8 @@
     <MESSAGE value="Successfull Fetch" />
     <MESSAGE value="Fetch Test Page Ready" />
     <MESSAGE value="L6_P1" />
-    <option name="LAST_COMMIT_MESSAGE" value="L6_P1" />
+    <MESSAGE value="Token added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Token added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -422,6 +457,15 @@
           <line>16</line>
           <properties field="role" class="itstep.learning.dal.dto.User" />
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/itstep/learning/dal/dao/AuthDao.java</url>
+          <line>138</line>
+          <properties class="itstep.learning.dal.dao.AuthDao" method="install">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

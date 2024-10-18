@@ -1,5 +1,6 @@
 package itstep.learning.services.filegenerator;
 
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 import java.security.SecureRandom;
@@ -11,6 +12,7 @@ public class RandomFileNameService implements FileGeneratorService{
     private static final int DEFAULT_LENGTH = 32;
     private final SecureRandom random;
 
+    @Inject
     public RandomFileNameService() {
         this.random = new SecureRandom();
     }
